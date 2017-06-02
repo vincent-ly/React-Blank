@@ -1,0 +1,34 @@
+@import "~normalize-scss/sass/normalize/import-now";
+$fa-font-path: "~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome.scss";
+@import "~susy/sass/susy";
+
+$susy: (
+  columns: 12,
+  gutters: .25,
+  math: fluid,
+);
+
+@include layout($susy float inside);
+
+body {    
+  background: #031d2d;
+  color:#fff;
+  font-family: Arial, Helvetica, sans-serif;
+
+  a{
+    color:#eee;
+    text-decoration: none;
+  }
+}
+
+main {
+
+  @include container(1200px);
+}
+
+#home{
+
+  @include span(6 of 12);
+  margin-left: span(3 wide of 12)
+}
