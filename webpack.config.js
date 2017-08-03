@@ -77,14 +77,14 @@ if (process.env.NODE_ENV) {
       comments: false
     }),
     new webpack.DefinePlugin({ 'process.env': { NODE_ENV: JSON.stringify('production') } }),
-    new ExtractTextPlugin({filename: 'assets/css/styles.css', allChunks: true, disable: false})
+    new ExtractTextPlugin({ filename: 'assets/css/styles.css', allChunks: true, disable: false })
   )
 } else {
   app.unshift(
     'react-hot-loader/patch',
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server'
-    )
+  )
 
   plugins.unshift(
     new webpack.HotModuleReplacementPlugin()
@@ -103,7 +103,11 @@ module.exports = {
     publicPath: '/'
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
+    modules: [
+      path.resolve('./src'),
+      'node_modules'
+    ]
 
   },
   devtool: sourceMap,
@@ -112,12 +116,7 @@ module.exports = {
       {
         test: /\.jsx?$/,
         loader: 'babel-loader',
-        exclude: /node_modules/,
-        options: {
-          presets: ['react', ['es2015', { 'modules': false }]],
-          plugins: ['react-hot-loader/babel']
-        }
-
+        exclude: /node_modules/
       },
       cssLoader,
       {
