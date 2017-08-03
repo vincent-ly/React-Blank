@@ -1,0 +1,9 @@
+
+  --reporter spec
+  --ui bdd
+  --colors
+  --recursive
+  --watch
+  --compilers js:babel-register
+  --require ./test/setup
+  ./src/**/*.spec.js
