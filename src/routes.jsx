@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, Link } from 'react-router-dom'
-import Home from './components/home/home'
+import Home from 'components/home/home'
 
 const App = ({ children }) => (
 
